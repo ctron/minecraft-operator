@@ -3,10 +3,6 @@
 You need to install the operator. Once you have installed the operator, you can create a new Minecraft instance by
 creating a new custom resource of type `Minecraft`.
 
-### Using OperatorHub
-
-The operator is available on [OperatorHub](https://operatorhub.io/operator/minecraft-operator).
-
 ### Using Helm
 
 You can also install the operator using [Helm](https://helm.sh/):
@@ -21,6 +17,6 @@ Create a new Minecraft instance:
 apiVersion: minecraft.dentrassi.de/v1alpha1
 kind: Minecraft
 metadata:
-  name: test
+  name: my-world
 spec: {}
 ~~~
