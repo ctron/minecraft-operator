@@ -1,0 +1,5 @@
+target/
+!target/release/minecraft-operator
+Dockerfile
+deploy/
+helm/

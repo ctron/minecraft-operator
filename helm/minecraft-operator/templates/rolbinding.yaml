@@ -1,0 +1,17 @@
+---
+{{- if .Values.rbac.enabled -}}
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ include "minecraft-operator.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "minecraft-operator.name" . }}
+{{ include "minecraft-operator.labels" . | indent 4 }}
+roleRef:
+  kind: Role
+  name: {{ include "minecraft-operator.fullname" . }}
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+  - kind: ServiceAccount
+    name: {{ include "minecraft-operator.serviceAccountName" . }}
+{{- end -}}

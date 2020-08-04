@@ -1,0 +1,26 @@
+---
+{{- if .Values.rbac.enabled -}}
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ include "minecraft-operator.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "minecraft-operator.name" . }}
+{{ include "minecraft-operator.labels" . | indent 4 }}
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "services", "services", "configmaps", "secrets", "serviceaccounts"]
+    verbs: ["create", "update", "delete", "get", "watch", "list"]
+  - apiGroups: ["apps"]
+    resources: ["deployments", "deployments" ]
+    verbs: ["create", "update", "delete", "get", "watch", "list"]
+  - apiGroups: ["rbac.authorization.k8s.io"]
+    resources: ["roles", "rolebindings"]
+    verbs: ["create", "update", "delete", "get", "watch", "list"]
+  - apiGroups: ["route.openshift.io"]
+    resources: ["routes"]
+    verbs: ["create", "update", "delete", "get", "watch", "list"]
+  - apiGroups: ["minecraft.dentrassi.de"]
+    resources: ["minecrafts", "minecrafts/status", "minecrafts/finalizers"]
+    verbs: ["create", "update", "delete", "get", "watch", "list"]
+{{- end -}}

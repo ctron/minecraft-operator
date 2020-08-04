@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "Launching Minecraft"
+echo "    Version: $VERSION"
+echo "  Cache Dir: $CACHE_DIR"

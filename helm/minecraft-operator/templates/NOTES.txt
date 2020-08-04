@@ -1,0 +1,10 @@
+
+Create a new Minecraft instance:
+
+$ kubectl apply -f - << __EOF__
+apiVersion: minecraft.dentrassi.de/v1alpha1
+kind: Minecraft
+metadata:
+  name: test
+spec: {}
+__EOF__

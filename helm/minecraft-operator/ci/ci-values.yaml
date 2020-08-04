@@ -1,0 +1,7 @@
+image:
+  repository: docker.pkg.github.com/ctron/minecraft-operator/minecraft-operator  # github repo + container name
+  tag: ci
+  pullPolicy: Always
+
+imagePullSecrets:
+  - name: ci
